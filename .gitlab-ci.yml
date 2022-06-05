@@ -1,5 +1,5 @@
 docker-build:
-  image: docker:latest
+  image: docker:stable
   stage: build
   tags:
     - app
