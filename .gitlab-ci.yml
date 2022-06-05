@@ -1,6 +1,8 @@
 docker-build:
-  image: docker:latest
+  image: docker:stable
   stage: build
+  tags:
+    - app
   services:
     - docker:dind
   before_script:
