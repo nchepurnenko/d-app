@@ -6,9 +6,7 @@ docker-build:
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
-    - |
-        cd docker
-        sed -i 's/app_version =.*/app_version = "${CI_COMMIT_TAG}"/' index.php
+    - sed -i 's/app_version =.*/app_version = "${CI_COMMIT_TAG}"/' index.php
     - docker build --pull -t "$CI_REGISTRY_IMAGE:${CI_COMMIT_TAG}" -t "$CI_REGISTRY_IMAGE" .
     - docker push -a "$CI_REGISTRY_IMAGE"
   rules:
