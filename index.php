@@ -8,4 +8,5 @@ echo $_SERVER['SERVER_SOFTWARE'];
 echo "<br/>";
 echo "ft-app version is $app_version";
 echo "<br/>";
+echo "<br/>";
 ?>
