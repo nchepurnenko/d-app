@@ -9,7 +9,6 @@ docker-build:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
     - sed -i 's/app_version =.*/app_version = "${CI_COMMIT_TAG}"/' index.php
-    - export DOCKER_HOST=tcp://172.17.0.1:2375
     - docker build --pull -t "$CI_REGISTRY_IMAGE:${CI_COMMIT_TAG}" -t "$CI_REGISTRY_IMAGE" .
     - docker push -a "$CI_REGISTRY_IMAGE"
   rules:
