@@ -1,8 +1,6 @@
 docker-build:
   image: docker:latest
   stage: build
-  only:
-  - master
   services:
     - docker:dind
   before_script:
